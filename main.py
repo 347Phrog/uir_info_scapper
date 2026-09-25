@@ -25,7 +25,7 @@ def loc():
     if location.lower().strip() == "butterfield": 
         return "butterfield"
     
-        if location.lower().strip() == "mainfare": 
+    if location.lower().strip() == "mainfare": 
         return "mainfare"
     
 def butterfield():
@@ -44,8 +44,9 @@ def butterfield():
 def mainfare():
     if 11*60 + 30 <= now < 15*60:
         return ["mainfare", "lunch"]
-    if 16*60 <= now < 21*60:
-        return ["mainfare", "lunch"]
+    if (16*60 <= now < 21*60) and curr_day.tm_wday in weekday:
+        return ["mainfare", "dinner"]
+    
 
 main()
 
